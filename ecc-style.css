@@ -1,0 +1,15 @@
+  .intercom-lightweight-app-launcher-custom-icon-open {
+          max-height: 165px !important;
+          max-width: 165px !important;
+  }
+ .intercom-launcher-frame {
+    height: 165px !important;
+    width: 165px !important;
+  }
+.intercom-namespace .intercom-with-namespace-75wcqx {
+  width: 165px !important;
+  height: 165px !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 2147482999 !important;
+}
