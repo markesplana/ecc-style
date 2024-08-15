@@ -1,8 +1,28 @@
-      function loadIframeCss(){
+ function waitForContainer(id, callback){
+          var poops = setInterval(function(){
+              if(document.querySelector(id)){
+                  clearInterval(poops);
+                  callback();
+
+                  var e = document.querySelector(id);
+                  var observer = new MutationObserver(function () {
+                    loadIframeCss();
+                  })
+                  observer.observe(e, {
+                    attributes: true, 
+                    attributeFilter: ['class'],
+                    childList: false, 
+                    characterData: false
+                  })
+              }
+          }, 100);
+      }
+
+        function loadIframeCss(){
             const iframeContainer = document.querySelector("[name='intercom-messenger-frame']")
-            iframeContainer.addEventListener('click', function() {
-              // console.log('Div was clicked!');
-            });
+            // iframeContainer.addEventListener('click', function() {
+            //   console.log('Div was clicked!');
+            // });
 
             var style = document.createElement('style');
             style.type = "text/css";
@@ -35,11 +55,12 @@
             ;
 
             iframeContainer2.contentDocument.head.appendChild(style1);
+
+
+
             
         }
-
-
-        waitForContainer("div.intercom-with-namespace-d8cv7q", function(){
+        waitForContainer("div.intercom-messenger-frame", function(){
           loadIframeCss();
         });
 
